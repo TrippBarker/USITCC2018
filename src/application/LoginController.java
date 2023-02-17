@@ -24,7 +24,7 @@ public class LoginController {
 	public void userLogin(ActionEvent e) throws IOException {
 		System.out.println("USER: " + usernameField.getText());
 		System.out.println("PASS: " + passwordField.getText());
-		ss.switchScene(e, "scenes/UserScene.fxml");
+		ss.switchScene(e, "scenes/RegisterScene.fxml");
 	}
 	
 	public void checkValidChar(KeyEvent ke){
