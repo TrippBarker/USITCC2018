@@ -29,8 +29,42 @@
          </font>
       </Label>
       <TextField fx:id="addressField" layoutX="46.0" layoutY="237.0" promptText="address" />
-      <Button layoutX="481.0" layoutY="339.0" mnemonicParsing="false" text="SUBMIT" />
-      <Button layoutX="390.0" layoutY="339.0" mnemonicParsing="false" text="BACK" />
+      <Button fx:id="submitButton" layoutX="481.0" layoutY="339.0" mnemonicParsing="false" onAction="#switchToUserScene" text="SUBMIT" />
+      <Button fx:id="backButton" layoutX="390.0" layoutY="339.0" mnemonicParsing="false" onAction="#switchToLoginScene" text="BACK" />
       <ComboBox fx:id="stateField" layoutX="46.0" layoutY="275.0" prefWidth="150.0" promptText="state" />
+      <Label layoutX="294.0" layoutY="119.0" style="visibility: false;" text="invalid password" textFill="RED" />
+      <Label layoutX="246.0" layoutY="155.0" style="visibility: false;" text="password does not match" textFill="RED" />
+      <Label layoutX="315.0" layoutY="241.0" style="visibility: false;" text="invalid email" textFill="RED" />
+      <Label layoutX="313.0" layoutY="85.0" style="visibility: false;" text="invalid userID" textFill="RED" />
+      <Label layoutX="34.0" layoutY="84.0" style="visibility: false;" text="!" textFill="RED">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="32.0" layoutY="354.0" style="visibility: false;" text="!" textFill="RED">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="34.0" layoutY="154.0" style="visibility: false;" text="!" textFill="RED">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="34.0" layoutY="240.0" style="visibility: false;" text="!" textFill="RED">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="32.0" layoutY="278.0" style="visibility: false;" text="!" textFill="RED">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="32.0" layoutY="316.0" style="visibility: false;" text="!" textFill="RED">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

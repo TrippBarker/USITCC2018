@@ -22,4 +22,6 @@ public class SceneSwitcher {
 		stage.setScene(scene);
 		stage.show();
 	}
+	
+	
 }

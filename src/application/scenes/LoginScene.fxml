@@ -11,6 +11,6 @@
       <Button fx:id="loginButt" layoutX="273.0" layoutY="239.0" mnemonicParsing="false" onAction="#userLogin" text="LOGIN" />
       <PasswordField fx:id="passwordField" layoutX="224.0" layoutY="200.0" promptText="password" />
       <TextField fx:id="usernameField" layoutX="224.0" layoutY="158.0" onKeyTyped="#checkValidChar" promptText="username" />
-      <Label fx:id="badLoginError" alignment="CENTER" layoutX="239.0" layoutY="271.0" prefHeight="25.0" prefWidth="122.0" text="INCORECT PASSWORD" textFill="RED" />
+      <Label fx:id="badLoginError" alignment="CENTER" layoutX="239.0" layoutY="271.0" prefHeight="25.0" prefWidth="122.0" style="visibility: false;" text="INCORECT PASSWORD" textFill="RED" />
    </children>
 </AnchorPane>
