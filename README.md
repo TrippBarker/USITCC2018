@@ -56,6 +56,7 @@ levels are shown below.
          Gold Level: 10 Points        Silver Level: 5 Points        Bronze Level: 3 Points         
 
 -------------------------------------------Reward Levels-------------------------------------------
+
 	• Drawing for a new car – 150 Points
 	• Concert or Game Tickets – 50 Points
 	• T-shirt or Hat – 12 Points
