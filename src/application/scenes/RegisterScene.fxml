@@ -9,59 +9,59 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.RegisterController">
    <children>
-      <TextField fx:id="fNameField" layoutX="45.0" layoutY="81.0" promptText="first name" />
-      <TextField fx:id="mInitialField" layoutX="45.0" layoutY="115.0" promptText="middle initial" />
-      <TextField fx:id="lNameField" layoutX="45.0" layoutY="151.0" promptText="last name" />
-      <TextField fx:id="userIDField" layoutX="390.0" layoutY="81.0" promptText="userID" />
-      <TextField fx:id="passwordField" layoutX="390.0" layoutY="115.0" promptText="password" />
-      <TextField fx:id="conPasswordField" layoutX="390.0" layoutY="151.0" promptText="confirm password" />
-      <TextField fx:id="cityField" layoutX="45.0" layoutY="313.0" promptText="city" />
-      <TextField fx:id="zipField" layoutX="45.0" layoutY="351.0" promptText="zip" />
+      <TextField fx:id="fNameField" layoutX="45.0" layoutY="81.0" onKeyTyped="#checkValidChar" promptText="first name" />
+      <TextField fx:id="mInitialField" layoutX="45.0" layoutY="115.0" onKeyTyped="#checkValidChar" promptText="middle initial" />
+      <TextField fx:id="lNameField" layoutX="45.0" layoutY="151.0" onKeyTyped="#checkValidChar" promptText="last name" />
+      <TextField fx:id="userIDField" layoutX="390.0" layoutY="81.0" onKeyTyped="#checkValidChar" promptText="userID" />
+      <TextField fx:id="passwordField" layoutX="390.0" layoutY="115.0" onKeyTyped="#checkValidChar" promptText="password" />
+      <TextField fx:id="conPasswordField" layoutX="390.0" layoutY="151.0" onKeyTyped="#checkValidChar" promptText="confirm password" />
+      <TextField fx:id="cityField" layoutX="45.0" layoutY="313.0" onKeyTyped="#checkValidChar" promptText="city" />
+      <TextField fx:id="zipField" layoutX="45.0" layoutY="351.0" onKeyTyped="#checkValidChar" promptText="zip" />
       <Label layoutX="45.0" layoutY="63.0" text="NAME DETAILS" />
       <Label layoutX="390.0" layoutY="63.0" text="LOGIN DETAILS" />
       <Label layoutX="45.0" layoutY="206.0" text="ADDRESS DETAILS" />
       <Label layoutX="390.0" layoutY="206.0" text="CONTACT DETAILS" />
-      <TextField fx:id="phoneField" layoutX="390.0" layoutY="275.0" promptText="phone" />
-      <TextField fx:id="emailField" layoutX="390.0" layoutY="237.0" promptText="email" />
+      <TextField fx:id="phoneField" layoutX="390.0" layoutY="275.0" onKeyTyped="#checkValidChar" promptText="phone" />
+      <TextField fx:id="emailField" layoutX="390.0" layoutY="237.0" onKeyTyped="#checkValidChar" promptText="email" />
       <Label layoutX="154.0" layoutY="14.0" text="NEW USER REGISTRATION">
          <font>
             <Font size="25.0" />
          </font>
       </Label>
-      <TextField fx:id="addressField" layoutX="46.0" layoutY="237.0" promptText="address" />
-      <Button fx:id="submitButton" layoutX="481.0" layoutY="339.0" mnemonicParsing="false" onAction="#switchToUserScene" text="SUBMIT" />
+      <TextField fx:id="addressField" layoutX="46.0" layoutY="237.0" onKeyTyped="#checkValidChar" promptText="address" />
+      <Button fx:id="submitButton" layoutX="481.0" layoutY="339.0" mnemonicParsing="false" onAction="#checkForValidFields" text="SUBMIT" />
       <Button fx:id="backButton" layoutX="390.0" layoutY="339.0" mnemonicParsing="false" onAction="#switchToLoginScene" text="BACK" />
       <ComboBox fx:id="stateField" layoutX="46.0" layoutY="275.0" prefWidth="150.0" promptText="state" />
-      <Label layoutX="294.0" layoutY="119.0" style="visibility: false;" text="invalid password" textFill="RED" />
-      <Label layoutX="246.0" layoutY="155.0" style="visibility: false;" text="password does not match" textFill="RED" />
-      <Label layoutX="315.0" layoutY="241.0" style="visibility: false;" text="invalid email" textFill="RED" />
-      <Label layoutX="313.0" layoutY="85.0" style="visibility: false;" text="invalid userID" textFill="RED" />
-      <Label layoutX="34.0" layoutY="84.0" style="visibility: false;" text="!" textFill="RED">
+      <Label fx:id="passwordError" layoutX="294.0" layoutY="119.0" style="visibility: false;" text="invalid password" textFill="RED" />
+      <Label fx:id="conPasswordError" layoutX="246.0" layoutY="155.0" style="visibility: false;" text="password does not match" textFill="RED" />
+      <Label fx:id="emailError" layoutX="315.0" layoutY="241.0" style="visibility: false;" text="invalid email" textFill="RED" />
+      <Label fx:id="idError" layoutX="313.0" layoutY="85.0" style="visibility: false;" text="invalid userID" textFill="RED" />
+      <Label fx:id="fNameError" layoutX="34.0" layoutY="84.0" style="visibility: false;" text="!" textFill="RED">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="32.0" layoutY="354.0" style="visibility: false;" text="!" textFill="RED">
+      <Label fx:id="zipError" layoutX="32.0" layoutY="354.0" style="visibility: false;" text="!" textFill="RED">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="34.0" layoutY="154.0" style="visibility: false;" text="!" textFill="RED">
+      <Label fx:id="lNameError" layoutX="34.0" layoutY="154.0" style="visibility: false;" text="!" textFill="RED">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="34.0" layoutY="240.0" style="visibility: false;" text="!" textFill="RED">
+      <Label fx:id="addressError" layoutX="34.0" layoutY="240.0" style="visibility: false;" text="!" textFill="RED">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="32.0" layoutY="278.0" style="visibility: false;" text="!" textFill="RED">
+      <Label fx:id="stateError" layoutX="32.0" layoutY="278.0" style="visibility: false;" text="!" textFill="RED">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="32.0" layoutY="316.0" style="visibility: false;" text="!" textFill="RED">
+      <Label fx:id="cityError" layoutX="32.0" layoutY="316.0" style="visibility: false;" text="!" textFill="RED">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
