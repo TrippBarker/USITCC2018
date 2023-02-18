@@ -35,7 +35,7 @@
       <Label fx:id="passwordError" layoutX="294.0" layoutY="119.0" style="visibility: false;" text="invalid password" textFill="RED" />
       <Label fx:id="conPasswordError" layoutX="246.0" layoutY="155.0" style="visibility: false;" text="password does not match" textFill="RED" />
       <Label fx:id="emailError" layoutX="315.0" layoutY="241.0" style="visibility: false;" text="invalid email" textFill="RED" />
-      <Label fx:id="idError" layoutX="313.0" layoutY="85.0" style="visibility: false;" text="invalid userID" textFill="RED" />
+      <Label fx:id="idError" alignment="CENTER_RIGHT" layoutX="201.0" layoutY="85.0" prefHeight="17.0" prefWidth="184.0" style="visibility: false;" text="invalid userID" textFill="RED" />
       <Label fx:id="fNameError" layoutX="34.0" layoutY="84.0" style="visibility: false;" text="!" textFill="RED">
          <font>
             <Font name="System Bold" size="14.0" />
@@ -62,6 +62,11 @@
          </font>
       </Label>
       <Label fx:id="cityError" layoutX="32.0" layoutY="316.0" style="visibility: false;" text="!" textFill="RED">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="phoneError" layoutX="382.0" layoutY="278.0" prefHeight="20.0" prefWidth="30.0" style="visibility: false;" text="!" textFill="RED">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>

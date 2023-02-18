@@ -68,6 +68,55 @@ public class RegisterController {
 		} else {
 			lNameError.setVisible(false);
 		}
+		if (userIDField.getText().length() < 5) {
+			haveValidFields = false;
+			idError.setText("ID should be at least 5 chars");
+			idError.setVisible(true);
+		} else {
+			idError.setVisible(false);
+		}
+		if (passwordField.getText().length() < 8) {
+			haveValidFields = false;
+			passwordError.setVisible(true);
+		} else {
+			passwordError.setVisible(false);
+		}
+		if (!conPasswordField.getText().equals(passwordField.getText())) {
+			haveValidFields = false;
+			conPasswordError.setVisible(true);
+		} else {
+			conPasswordError.setVisible(false);
+		}
+		if (cityField.getText().length() < 3) {
+			haveValidFields = false;
+			cityError.setVisible(true);
+		} else {
+			cityError.setVisible(false);
+		}
+		if (zipField.getText().length() != 5) {
+			haveValidFields = false;
+			zipError.setVisible(true);
+		} else {
+			zipError.setVisible(false);
+		}
+		if (addressField.getText().length() < 5) {
+			haveValidFields = false;
+			addressError.setVisible(true);
+		} else {
+			addressError.setVisible(false);
+		}
+		if (phoneField.getText().length() != 10) {
+			haveValidFields = false;
+			phoneError.setVisible(true);
+		} else {
+			phoneError.setVisible(false);
+		}
+		if (emailField.getText().length() < 5) {
+			haveValidFields = false;
+			emailError.setVisible(true);
+		} else {
+			emailError.setVisible(false);
+		}
 	}
 	
 	public void switchToLoginScene(ActionEvent e) throws IOException {
@@ -96,27 +145,27 @@ public class RegisterController {
 			break;
 		case "lNameField":
 			len = 15;
-			pattern = "[A-Za-z\b]";
+			pattern = "[A-Za-z-\b]";
 			varIndex = 2;
 			break;
 		case "userIDField":
 			len = 15;
-			pattern = "[A-Za-z\b]";
+			pattern = "[A-Za-z0-9\b]";
 			varIndex = 3;
 			break;
 		case "passwordField":
 			len = 16;
-			pattern = "[A-Za-z0-9\b]";
+			pattern = "[A-Za-z0-9-!$%^&*()_+|~=`{}\\[\\]:\";'<>?,.\\/\b]";
 			varIndex = 4;
 			break;
 		case "conPasswordField":
 			len = 16;
-			pattern = "[A-Za-z0-9\b]";
+			pattern = "[A-Za-z0-9-!$%^&*()_+|~=`{}\\[\\]:\";'<>?,.\\/\b]";
 			varIndex = 5;
 			break;
 		case "cityField":
 			len = 10;
-			pattern = "[A-Za-z\b]";
+			pattern = "[A-Za-z \b]";
 			varIndex = 6;
 			break;
 		case "zipField":
@@ -126,12 +175,12 @@ public class RegisterController {
 			break;
 		case "addressField":
 			len = 20;
-			pattern = "[A-Za-z0-9\b]";
+			pattern = "[A-Za-z0-9 \b]";
 			varIndex = 8;
 			break;
 		case "emailField":
 			len = 25;
-			pattern = "[A-Za-z\b]";
+			pattern = "[A-Za-z@.\b]";
 			varIndex = 9;
 			break;
 		case "phoneField":
