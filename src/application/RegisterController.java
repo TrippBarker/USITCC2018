@@ -1,6 +1,8 @@
 package application;
 
 import java.io.IOException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.regex.Pattern;
 
 import javafx.event.ActionEvent;
@@ -59,7 +61,7 @@ public class RegisterController {
 	
 	private SceneSwitcher ss = new SceneSwitcher();
 	
-	public void checkForValidFields(ActionEvent e) throws IOException{
+	public void checkForValidFields(ActionEvent e) throws IOException, NoSuchAlgorithmException{
 		boolean haveValidFields = true;
 		if (fNameField.getText().equals("")) {
 			haveValidFields = false;
@@ -217,19 +219,28 @@ public class RegisterController {
 		}
 	}
 	
-	public void createNewUser(ActionEvent e) throws IOException {
+	public void createNewUser(ActionEvent e) throws IOException, NoSuchAlgorithmException {
 		User newUser = new Volunteer();
+		MessageDigest md = MessageDigest.getInstance("MD5");
 		newUser.setfName(fNameField.getText());
 		newUser.setmInitial(mInitialField.getText());
 		newUser.setlName(lNameField.getText());
 		newUser.setUserID(userIDField.getText());
-		newUser.setPassword(passwordField.getText());
+		newUser.setPassword(md.digest(passwordField.getText().getBytes("UTF-8")));
 		newUser.setAddress(addressField.getText());
 		newUser.setCity(cityField.getText());
 		newUser.setState(stateField.getValue());
 		newUser.setZip(Integer.valueOf(zipField.getText()));
 		newUser.setEmail(emailField.getText());
-		newUser.setPhone(Integer.valueOf(phoneField.getText()));
+		newUser.setPhone(phoneField.getText());
+		for(int i = 0; i < newUser.getPassword().length; i++) {
+			System.out.print(newUser.getPassword()[i]);
+		}
+		System.out.println();
+		byte[] passw = md.digest("Password".getBytes("UTF-8"));
+		for(int i = 0; i < passw.length; i++) {
+			System.out.print(passw[i]);
+		}
 		switchToUserScene(e);
 	}
 	

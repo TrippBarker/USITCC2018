@@ -5,12 +5,12 @@ public abstract class User {
 	private String mInitial;
 	private String lName;
 	private String userID;
-	private String password;
+	private byte[] password;
 	private String address;
 	private String city;
 	private String state;
 	private int zip;
-	private int phone;
+	private String phone;
 	private String email;
 	
 	public User() {
@@ -48,11 +48,11 @@ public abstract class User {
 		this.userID = userID;
 	}
 
-	public String getPassword() {
+	public byte[] getPassword() {
 		return password;
 	}
 
-	public void setPassword(String password) {
+	public void setPassword(byte[] password) {
 		this.password = password;
 	}
 
@@ -88,11 +88,11 @@ public abstract class User {
 		this.zip = zip;
 	}
 
-	public int getPhone() {
+	public String getPhone() {
 		return phone;
 	}
 
-	public void setPhone(int phone) {
+	public void setPhone(String phone) {
 		this.phone = phone;
 	}
 
