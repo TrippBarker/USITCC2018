@@ -19,6 +19,7 @@ public class RegisterController {
 		  addressError,
 		  cityError,
 		  zipError,
+		  stateError,
 		  idError,
 		  passwordError,
 		  conPasswordError,
@@ -47,7 +48,11 @@ public class RegisterController {
 	@FXML
 	public void initialize() {
 		stateField.getItems().removeAll(stateField.getItems());
-		stateField.getItems().addAll("GA", "TX", "CA");
+		stateField.getItems().addAll("AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FL", "GA",
+									 "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", 
+									 "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", 
+									 "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", 
+									 "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY");
 	}
 	
 	String[] userVariables = {"", "", "", "", "", "", "", "", "", "", ""};
@@ -116,6 +121,15 @@ public class RegisterController {
 			emailError.setVisible(true);
 		} else {
 			emailError.setVisible(false);
+		}
+		if (stateField.getValue() == null) {
+			haveValidFields = false;
+			stateError.setVisible(true);
+		} else {
+			stateError.setVisible(false);
+		}
+		if(haveValidFields) {
+			createNewUser(e);
 		}
 	}
 	
@@ -201,6 +215,22 @@ public class RegisterController {
 		} else {
 			userVariables[varIndex] = field.getText();
 		}
+	}
+	
+	public void createNewUser(ActionEvent e) throws IOException {
+		User newUser = new Volunteer();
+		newUser.setfName(fNameField.getText());
+		newUser.setmInitial(mInitialField.getText());
+		newUser.setlName(lNameField.getText());
+		newUser.setUserID(userIDField.getText());
+		newUser.setPassword(passwordField.getText());
+		newUser.setAddress(addressField.getText());
+		newUser.setCity(cityField.getText());
+		newUser.setState(stateField.getValue());
+		newUser.setZip(Integer.valueOf(zipField.getText()));
+		newUser.setEmail(emailField.getText());
+		newUser.setPhone(Integer.valueOf(phoneField.getText()));
+		switchToUserScene(e);
 	}
 	
 }
