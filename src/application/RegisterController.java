@@ -144,6 +144,7 @@ public class RegisterController {
 	}
 	
 	public void checkValidChar(KeyEvent ke){
+		System.out.println(ke.getCharacter());
 		int len;
 		String pattern;
 		int varIndex;
