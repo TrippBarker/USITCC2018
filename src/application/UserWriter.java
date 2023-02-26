@@ -73,10 +73,21 @@ public class UserWriter {
 		
 		for(User user : users) {
 			Element userElm = addElement(root, "user", "", doc);
-			userElm.setAttribute("id", "2");
+			userElm.setAttribute("id", user.getUserID());
 			
-			addElement(userElm, "name", user.getfName(), doc);
-			addElement(userElm, "id", user.getUserID(), doc);
+			addElement(userElm, "firstName", user.getfName(), doc);
+			addElement(userElm, "middleInitial", user.getmInitial(), doc);
+			addElement(userElm, "lastName", user.getlName(), doc);
+			String password = "";
+			for(int i = 0; i < user.getPassword().length; i++) {
+				password += user.getPassword()[i];
+			}
+			addElement(userElm, "password", password, doc);
+			addElement(userElm, "address", user.getAddress(), doc);
+			addElement(userElm, "city", user.getCity(), doc);
+			addElement(userElm, "state", user.getState(), doc);
+			addElement(userElm, "zipCode", user.getZip(), doc);
+			addElement(userElm, "email", user.getEmail(), doc);
 			addElement(userElm, "phone", user.getPhone(), doc);
 		}
 		

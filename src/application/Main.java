@@ -1,6 +1,8 @@
 package application;
 
 import java.io.IOException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -17,22 +19,22 @@ public class Main extends Application {
 	public static User user;
 	
 	@Override
-	public void start(Stage primaryStage) throws IOException, ParserConfigurationException, TransformerException {
+	public void start(Stage primaryStage) throws IOException, ParserConfigurationException, TransformerException, NoSuchAlgorithmException {
 		
 		ArrayList<User> users = new ArrayList<User>();
-		users.add(new Volunteer());
-		users.add(new Volunteer());
-		users.add(new Volunteer());
-		users.get(0).setfName("Bob");
-		users.get(0).setUserID("HiImBob123");
-		users.get(0).setPhone("1234567891");
-		users.get(1).setfName("Catherine");
-		users.get(1).setUserID("ILikeCats");
-		users.get(1).setPhone("4047712312");
-		users.get(2).setfName("Alexia");
-		users.get(2).setUserID("xXxAlexiaxXx");
-		users.get(2).setPhone("8675305");
-		
+		MessageDigest md = MessageDigest.getInstance("MD5");
+		users.add(new Admin());
+		users.get(0).setfName("Leeroy");
+		users.get(0).setmInitial("D");
+		users.get(0).setlName("Jenkins");
+		users.get(0).setUserID("ADMIN_Jenkins");
+		users.get(0).setPassword(md.digest("password123".getBytes("UTF-8")));
+		users.get(0).setAddress("7121 Bishop Rd");
+		users.get(0).setCity("Plano");
+		users.get(0).setState("TX");
+		users.get(0).setZip("75024");
+		users.get(0).setEmail("ADMIN_Jenkins@helpme.org");
+		users.get(0).setPhone("123-456-7890");
 		UserWriter userWriter = new UserWriter();
 		userWriter.buildDocument(users);
 		

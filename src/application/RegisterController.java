@@ -231,7 +231,7 @@ public class RegisterController {
 		Main.user.setAddress(addressField.getText());
 		Main.user.setCity(cityField.getText());
 		Main.user.setState(stateField.getValue());
-		Main.user.setZip(Integer.valueOf(zipField.getText()));
+		Main.user.setZip(zipField.getText());
 		Main.user.setEmail(emailField.getText());
 		Main.user.setPhone(phoneField.getText());
 		for(int i = 0; i < Main.user.getPassword().length; i++) {

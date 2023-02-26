@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <USERS>
-    <user id="2">
-        <name>Bob</name>
-        <id>HiImBob123</id>
-        <phone>1234567891</phone>
-    </user>
-    <user id="2">
-        <name>Catherine</name>
-        <id>ILikeCats</id>
-        <phone>4047712312</phone>
-    </user>
-    <user id="2">
-        <name>Alexia</name>
-        <id>xXxAlexiaxXx</id>
-        <phone>8675305</phone>
+    <user id="ADMIN_Jenkins">
+        <firstName>Leeroy</firstName>
+        <middleInitial>D</middleInitial>
+        <lastName>Jenkins</lastName>
+        <password>7244-12729-91-43-76-6810973127-6-104733056</password>
+        <address>7121 Bishop Rd</address>
+        <city>Plano</city>
+        <state>TX</state>
+        <zipCode>75024</zipCode>
+        <email>ADMIN_Jenkins@helpme.org</email>
+        <phone>123-456-7890</phone>
     </user>
 </USERS>
