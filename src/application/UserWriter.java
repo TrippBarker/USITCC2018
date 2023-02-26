@@ -1,5 +1,6 @@
 package application;
 
+import java.io.File;
 import java.io.StringWriter;
 import java.util.ArrayList;
 
@@ -8,8 +9,10 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.TransformerFactoryConfigurationError;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
@@ -20,25 +23,46 @@ import org.w3c.dom.NodeList;
 
 public class UserWriter {
 	
-	public void buildDocument(ArrayList<User> users) throws ParserConfigurationException, TransformerException {
+	public void buildDocument(ArrayList<User> users) 
+			throws ParserConfigurationException, TransformerException {
 		Document doc = createXMLDoc(users);
 		
+		outputToString(doc);
+		outputAsFile(doc, "users.xml");
+		
+	}
+
+	private void outputToString(Document doc)
+			throws TransformerFactoryConfigurationError, TransformerConfigurationException, TransformerException {
 		DOMSource source = new DOMSource(doc);
 		StringWriter writer = new StringWriter();
 		StreamResult result = new StreamResult(writer);
+		Transformer transformer = getTransformer();
+		
+		transformer.transform(source, result);
+		String xmlString = writer.toString();
+		System.out.println(xmlString);
+	}
+	
+	private void outputAsFile(Document doc, String filename) 
+			throws TransformerConfigurationException, TransformerException, TransformerFactoryConfigurationError {
+		DOMSource source = new DOMSource(doc);
+		StreamResult result = new StreamResult(new File(filename));
+		getTransformer().transform(source, result);
+	}
+
+	private Transformer getTransformer()
+			throws TransformerFactoryConfigurationError, TransformerConfigurationException {
 		TransformerFactory factory = TransformerFactory.newInstance();
 		Transformer transformer = factory.newTransformer();
 		
 		transformer.setOutputProperty(OutputKeys.INDENT, "yes");
 		transformer.setOutputProperty("{http://xml.apache.org/xsltindent-amount}", "2");
-		
-		transformer.transform(source, result);
-		String xmlString = writer.toString();
-		System.out.println(xmlString);
-		
+		return transformer;
 	}
 
-	public Document createXMLDoc(ArrayList<User> users) throws ParserConfigurationException {
+	public Document createXMLDoc(ArrayList<User> users) 
+			throws ParserConfigurationException {
 		
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder builder = factory.newDocumentBuilder();

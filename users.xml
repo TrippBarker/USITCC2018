@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<USERS>
+    <user id="2">
+        <name>Bob</name>
+        <id>HiImBob123</id>
+        <phone>1234567891</phone>
+    </user>
+    <user id="2">
+        <name>Catherine</name>
+        <id>ILikeCats</id>
+        <phone>4047712312</phone>
+    </user>
+    <user id="2">
+        <name>Alexia</name>
+        <id>xXxAlexiaxXx</id>
+        <phone>8675305</phone>
+    </user>
+</USERS>
