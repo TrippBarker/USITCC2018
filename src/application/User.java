@@ -108,9 +108,9 @@ public abstract class User {
 	
 	public String toString() {
 		String passwordString = "";
-		
-		System.out.println(this.getPassword());
-		return ("NAME: " + this.getfName());
+		return ("NAME: " + this.getfName() + " " + this.mInitial + " " + this.getlName() +"\n"
+				+ "USER: " + this.getUserID() + "\n" +
+				"PASSWORD: " + this.getPassword());
 	}
 	
 }

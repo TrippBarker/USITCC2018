@@ -51,7 +51,6 @@ public class Main extends Application {
 		//for (byte bit : password) {
 		//	passwordStr += bit;
 		//}
-		//System.out.println(passwordStr);
 		//users.get(1).setPassword(passwordStr);
 		//users.get(1).setAddress("123 Alphabet Dr");
 		//users.get(1).setCity("Portland");
@@ -66,6 +65,7 @@ public class Main extends Application {
 		UserReader userReader = new UserReader();
 		users = userReader.readXML();
 		System.out.println(users.get(0).toString());
+		System.out.println(users.get(1).toString());
 		
 		Parent root = FXMLLoader.load(getClass().getResource("scenes/LoginScene.fxml"));
 		Scene scene = new Scene(root);
