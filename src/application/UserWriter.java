@@ -26,22 +26,8 @@ public class UserWriter {
 	public void buildDocument(ArrayList<User> users) 
 			throws ParserConfigurationException, TransformerException {
 		Document doc = createXMLDoc(users);
-		
-		outputToString(doc);
 		outputAsFile(doc, "users.xml");
 		
-	}
-
-	private void outputToString(Document doc)
-			throws TransformerFactoryConfigurationError, TransformerConfigurationException, TransformerException {
-		DOMSource source = new DOMSource(doc);
-		StringWriter writer = new StringWriter();
-		StreamResult result = new StreamResult(writer);
-		Transformer transformer = getTransformer();
-		
-		transformer.transform(source, result);
-		String xmlString = writer.toString();
-		System.out.println(xmlString);
 	}
 	
 	private void outputAsFile(Document doc, String filename) 
@@ -74,15 +60,11 @@ public class UserWriter {
 		for(User user : users) {
 			Element userElm = addElement(root, "user", "", doc);
 			userElm.setAttribute("id", user.getUserID());
-			
+			addElement(userElm, "userType", user.getClass().toString(), doc);
 			addElement(userElm, "firstName", user.getfName(), doc);
 			addElement(userElm, "middleInitial", user.getmInitial(), doc);
 			addElement(userElm, "lastName", user.getlName(), doc);
-			String password = "";
-			for(int i = 0; i < user.getPassword().length; i++) {
-				password += user.getPassword()[i];
-			}
-			addElement(userElm, "password", password, doc);
+			addElement(userElm, "password", user.getPassword(), doc);
 			addElement(userElm, "address", user.getAddress(), doc);
 			addElement(userElm, "city", user.getCity(), doc);
 			addElement(userElm, "state", user.getState(), doc);

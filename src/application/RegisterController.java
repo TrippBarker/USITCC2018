@@ -227,16 +227,13 @@ public class RegisterController {
 		Main.user.setmInitial(mInitialField.getText());
 		Main.user.setlName(lNameField.getText());
 		Main.user.setUserID(userIDField.getText());
-		Main.user.setPassword(md.digest(passwordField.getText().getBytes("UTF-8")));
+		Main.user.setPassword(md.digest(passwordField.getText().getBytes("UTF-8")).toString());
 		Main.user.setAddress(addressField.getText());
 		Main.user.setCity(cityField.getText());
 		Main.user.setState(stateField.getValue());
 		Main.user.setZip(zipField.getText());
 		Main.user.setEmail(emailField.getText());
 		Main.user.setPhone(phoneField.getText());
-		for(int i = 0; i < Main.user.getPassword().length; i++) {
-			System.out.print(Main.user.getPassword()[i]);
-		}
 		switchToUserScene(e);
 	}
 	

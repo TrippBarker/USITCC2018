@@ -5,7 +5,7 @@ public abstract class User {
 	private String mInitial;
 	private String lName;
 	private String userID;
-	private byte[] password;
+	private String password;
 	private String address;
 	private String city;
 	private String state;
@@ -48,11 +48,11 @@ public abstract class User {
 		this.userID = userID;
 	}
 
-	public byte[] getPassword() {
+	public String getPassword() {
 		return password;
 	}
 
-	public void setPassword(byte[] password) {
+	public void setPassword(String password) {
 		this.password = password;
 	}
 
@@ -107,6 +107,9 @@ public abstract class User {
 	@Override
 	
 	public String toString() {
+		String passwordString = "";
+		
+		System.out.println(this.getPassword());
 		return ("NAME: " + this.getfName());
 	}
 	

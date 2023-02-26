@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <USERS>
     <user id="ADMIN_Jenkins">
+        <userType>class application.Admin</userType>
         <firstName>Leeroy</firstName>
         <middleInitial>D</middleInitial>
         <lastName>Jenkins</lastName>
@@ -11,5 +12,18 @@
         <zipCode>75024</zipCode>
         <email>ADMIN_Jenkins@helpme.org</email>
         <phone>123-456-7890</phone>
+    </user>
+    <user id="PnyLvr">
+        <userType>class application.Volunteer</userType>
+        <firstName>Jenny</firstName>
+        <middleInitial>T</middleInitial>
+        <lastName>Williams</lastName>
+        <password>32310-75-5493101-95-6324-27-2936498176</password>
+        <address>123 Alphabet Dr</address>
+        <city>Portland</city>
+        <state>OR</state>
+        <zipCode>90210</zipCode>
+        <email>IlovePonies@gmail.com</email>
+        <phone>404-771-2312</phone>
     </user>
 </USERS>
