@@ -13,7 +13,7 @@ public class UserController {
 	SceneSwitcher ss = new SceneSwitcher();
 	
 	public void printUser() {
-		System.out.println("Hello User");
+		System.out.println(Main.user.toString());
 	}
 	
 	public void userLogout(ActionEvent e) throws IOException {
