@@ -30,7 +30,6 @@ public class UserReader {
 		}
 		
 		NodeList list = doc.getElementsByTagName("user");
-		System.out.println(list.getLength());
 		User user;
 		for (int i = 0; i < list.getLength(); i++) {
 			if (list.item(i).getChildNodes().item(1).getTextContent() == "class application.Admin") {
@@ -41,7 +40,7 @@ public class UserReader {
 			users.add(user);
 			
 			Element userElm = (Element)list.item(i);
-			String userID = userElm.getAttribute("userID");
+			String userID = userElm.getAttribute("id");
 			user.setUserID(userID);
 			
 			user.setfName(getTextFromElement(userElm, "firstName"));

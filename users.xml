@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <USERS>
-    <user id="">
+    <user id="ADMIN_Leeroy">
         <userType>class application.Volunteer</userType>
         <firstName>Leeroy</firstName>
         <middleInitial>D</middleInitial>
@@ -13,7 +13,7 @@
         <email>ADMIN_Jenkins@helpme.org</email>
         <phone>123-456-7890</phone>
     </user>
-    <user id="">
+    <user id="xXxJennyxXx">
         <userType>class application.Volunteer</userType>
         <firstName>Jenny</firstName>
         <middleInitial>T</middleInitial>
