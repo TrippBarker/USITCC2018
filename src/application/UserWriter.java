@@ -3,6 +3,8 @@ package application;
 import java.io.File;
 import java.io.StringWriter;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -56,7 +58,7 @@ public class UserWriter {
 		
 		Element root = doc.createElement("USERS");
 		doc.appendChild(root);
-		
+
 		for(User user : users) {
 			Element userElm = addElement(root, "user", "", doc);
 			userElm.setAttribute("id", user.getUserID());

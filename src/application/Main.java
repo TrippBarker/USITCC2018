@@ -17,6 +17,7 @@ import javafx.stage.Stage;
 public class Main extends Application {
 	
 	public static User user;
+	public static ArrayList<User> users;
 	
 	@Override
 	public void start(Stage primaryStage) throws IOException, ParserConfigurationException, TransformerException, NoSuchAlgorithmException {
@@ -58,15 +59,12 @@ public class Main extends Application {
 		//users.get(1).setZip("90210");
 		//users.get(1).setEmail("IlovePonies@gmail.com");
 		//users.get(1).setPhone("404-771-2312");
-		//UserWriter userWriter = new UserWriter();
-		//userWriter.buildDocument(users);
 		
-		ArrayList<User> users;
 		UserReader userReader = new UserReader();
 		users = userReader.readXML();
-		System.out.println(users.get(0).toString());
-		System.out.println(users.get(1).toString());
-		
+		for (User user: users) {
+			System.out.println(user.toString());
+		}
 		Parent root = FXMLLoader.load(getClass().getResource("scenes/LoginScene.fxml"));
 		Scene scene = new Scene(root);
 		primaryStage.setScene(scene);
@@ -76,5 +74,11 @@ public class Main extends Application {
 	
 	public static void main(String[] args) {
 		launch(args);
+	}
+	
+	public static void addUser(User newUser) throws ParserConfigurationException, TransformerException {
+		users.add(newUser);
+		UserWriter userWriter = new UserWriter();
+		userWriter.buildDocument(users);
 	}
 }

@@ -5,6 +5,9 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.regex.Pattern;
 
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerException;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -61,7 +64,7 @@ public class RegisterController {
 	
 	private SceneSwitcher ss = new SceneSwitcher();
 	
-	public void checkForValidFields(ActionEvent e) throws IOException, NoSuchAlgorithmException{
+	public void checkForValidFields(ActionEvent e) throws IOException, NoSuchAlgorithmException, ParserConfigurationException, TransformerException{
 		boolean haveValidFields = true;
 		if (fNameField.getText().equals("")) {
 			haveValidFields = false;
@@ -197,7 +200,7 @@ public class RegisterController {
 			break;
 		case "emailField":
 			len = 25;
-			pattern = "[A-Za-z@.\b]";
+			pattern = "[A-Za-z0-9@.\b]";
 			varIndex = 9;
 			break;
 		case "phoneField":
@@ -220,20 +223,26 @@ public class RegisterController {
 		}
 	}
 	
-	public void createNewUser(ActionEvent e) throws IOException, NoSuchAlgorithmException {
+	public void createNewUser(ActionEvent e) throws IOException, NoSuchAlgorithmException, ParserConfigurationException, TransformerException {
 		Main.user = new Volunteer();
 		MessageDigest md = MessageDigest.getInstance("MD5");
 		Main.user.setfName(fNameField.getText());
 		Main.user.setmInitial(mInitialField.getText());
 		Main.user.setlName(lNameField.getText());
 		Main.user.setUserID(userIDField.getText());
-		Main.user.setPassword(md.digest(passwordField.getText().getBytes("UTF-8")).toString());
+		byte[] password = md.digest(passwordField.getText().getBytes("UTF-8"));
+		String passwordStr = "";
+		for (byte bit : password) {
+			passwordStr += bit;
+		}
+		Main.user.setPassword(passwordStr);
 		Main.user.setAddress(addressField.getText());
 		Main.user.setCity(cityField.getText());
 		Main.user.setState(stateField.getValue());
 		Main.user.setZip(zipField.getText());
 		Main.user.setEmail(emailField.getText());
 		Main.user.setPhone(phoneField.getText());
+		Main.addUser(Main.user);
 		switchToUserScene(e);
 	}
 	
